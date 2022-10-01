@@ -1,0 +1,18 @@
+.wd-border-page {
+    border-color: rgb(47,51,54);
+    border-style: solid;
+    border-width: 1px;
+}
+
+.wd-page-pos-nudge-right {
+    position: relative;
+    left: 16px;
+}
+
+.wd-float-left{
+    float: left;
+}
+
+.wd-float-right{
+    float: right;
+}
