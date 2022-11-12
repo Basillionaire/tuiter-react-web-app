@@ -75,8 +75,7 @@
 .wd-black-button{
     background-color: black;
     color: white;
-    length: 20px;
-
+    font-size: 15px;
 }
 
 .wd-large-text{
@@ -86,5 +85,9 @@
 
 .wd-edit-profile-text{
     font-size: 20px;
+}
+
+.wd-form-placement{
+    top:80px;
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import '@fortawesome/fontawesome-free/css/all.css';
 import {useDispatch} from "react-redux";
-import {deleteTuit} from "../tuits/tuits-reducer";
+import {deleteTuitThunk, updateTuitThunk} from "../../services/tuits-thunks";
 
 
 const TuitItem = (
@@ -19,6 +19,7 @@ const TuitItem = (
             "replies": 123,
             "retuits": 432,
             "likes": 2345,
+            "dislikes": 2345,
             "handle": "@spacex",
             "tuit": "You want to wake up in the morning and think the future is going to be great - and that’s what being a spacefaring civilization is all about. It’s about believing in the future and thinking that the future will be better than the past. And I can’t think of anything more exciting than going out there and being among the stars"
 
@@ -27,7 +28,7 @@ const TuitItem = (
 ) => {
     const dispatch = useDispatch();
     const deleteTuitHandler = (id) => {
-        dispatch(deleteTuit(id));
+        dispatch(deleteTuitThunk(id));
     }
 
     return(
@@ -51,16 +52,44 @@ const TuitItem = (
                 </div>
                 <div>
                     <div className="row ms-5 mt-3">
+                        <div className="col-2">
+                            <div>
+                                <i onClick={() => dispatch(updateTuitThunk({
+                                    ...tuit,
+                                    replies: tuit.replies + 1
+                                }))} className="fa fa-comment me-2"></i>
+                                <span className="wd-icon-distribution">{tuit.replies}</span>
+                            </div>
+                        </div>
+                        <div className="col-2">
+                            <div>
+                                <i onClick={() => dispatch(updateTuitThunk({
+                                    ...tuit,
+                                    retuits: tuit.retuits + 1
+                                }))} className="fa fa-retweet me-2"></i>
+                                <span className="wd-icon-distribution">{tuit.retuits}</span>
+                            </div>
+                        </div>
+
                         <div className="col-3">
-                            <i className="fa fa-comment"></i><span className="wd-icon-distribution ms-3">{tuit.replies}</span>
+                            <div>
+                            Likes: {tuit.likes}
+                            <i onClick={() => dispatch(updateTuitThunk({
+                                ...tuit,
+                                likes: tuit.likes + 1
+                            }))} className="bi bi-heart-fill me-2 text-danger"></i>
+                        </div>
                         </div>
                         <div className="col-3">
-                            <i className="fa fa-retweet"></i><span className="wd-icon-distribution ms-3">{tuit.retuits}</span>
+                            <div>
+                                {tuit.dislikes}
+                                <i onClick={() => dispatch(updateTuitThunk({
+                                    ...tuit,
+                                    dislikes: tuit.dislikes + 1
+                                }))} className="fa fa-thumbs-down me-2"></i>
+                            </div>
                         </div>
-                        <div className="col-3">
-                            <i className="fa fa-heart"></i><span className="wd-icon-distribution ms-3">{tuit.likes}</span>
-                        </div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <i className="fa fa-upload"></i>
                         </div>
                     </div>
