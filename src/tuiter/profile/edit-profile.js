@@ -26,12 +26,18 @@ const EditProfile = (
             <div className="col-12">
                 <div className="position-relative fw-bold wd-edit-profile-text">
                     Edit profile
-                    <button className="rounded-pill btn float-end ps-3 pe-3 fw-bold wd-black-button">
+                    <button className="rounded-pill float-end ps-3 pe-3 fw-bold wd-black-button">
                         Save
                     </button>
                     <img className="w-100 mt-2" height={300} src={`/images/${profile.bannerPicture}`}/>
-                    <img className="rounded-circle wd-nudge-down-picture position-absolute" height={200} width={200} src={`/images/${profile.profilePicture}`}/>
+                    <img className="rounded-circle wd-nudge-down-picture position-absolute mt-5" height={150} width={150} src={`/images/${profile.profilePicture}`}/>
                 </div>
+            <div className="wd-form-placement position-relative">
+                <input
+                       value={profile.firstName + ' ' + profile.lastName}
+                       className="form-control w-100"/>
+            </div>
+
             </div>
         </div>
     );
