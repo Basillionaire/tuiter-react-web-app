@@ -16,7 +16,7 @@ const currentUser = {
 };
 
 const templateTuit = {
-    ...currentUser,
+    currentUser,
     "topic": "Space",
     "time": "2h",
     "liked": false,
@@ -42,7 +42,6 @@ const tuitsSlice = createSlice({
         [findTuitsThunk.rejected]:
             (state) => {
                 state.loading = false
-            }
     },
     [deleteTuitThunk.fulfilled] :
         (state, { payload }) => {
@@ -64,7 +63,7 @@ const tuitsSlice = createSlice({
                 ...state.tuits[tuitNdx],
                 ...payload
             }
-        },
+        }},
 
 
 
