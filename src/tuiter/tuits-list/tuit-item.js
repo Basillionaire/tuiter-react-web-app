@@ -41,7 +41,7 @@ const TuitItem = (
                 <div className="col-10 ms-3">
                     <i className="bi bi-x-lg float-end"
                        onClick={() => deleteTuitHandler(tuit._id)}></i>
-                    <div className="fw-bolder">{tuit.userName}
+                    <div className="fw-bolder">{tuit.username}
                         <i className="fa fa-check wd-blue-icon-bg ms-1">
                         </i>
                         <span className="text-secondary fw-normal ms-1">
